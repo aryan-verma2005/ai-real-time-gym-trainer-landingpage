@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Real-time GYM Trainer | Next-Gen AI Workout Coach</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="AI Real-time GYM Trainer: Computer vision-powered workout coach utilizing MediaPipe pose estimation, biomechanical joint angle tracking, and proactive real-time AI voice feedback.">
+  <meta name="keywords" content="AI Gym Coach, MediaPipe Pose Detection, Real-time Workout Form Correction, Fitness AI, Streamlit Computer Vision">
+  <meta name="author" content="Aryan Verma">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="AI Real-time GYM Trainer | Next-Gen AI Workout Coach">
+  <meta property="og:description" content="Real-time pose detection with proactive AI voice coaching. Zero extra hardware required. Built by Aryan Verma.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ai-real-time-gym-trainer-1.streamlit.app/">
+  <meta property="og:image" content="images/3.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Animated Lighting & Grid -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="mesh-glow-1"></div>
+    <div class="mesh-glow-2"></div>
+    <div class="mesh-glow-3"></div>
+    <div class="cyber-grid"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper" id="mainHeader">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="#hero" class="nav-brand" id="brandLogo">
+          <div class="brand-badge">🏋️</div>
+          <div class="brand-text">AI Gym <span>Coach</span></div>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#demo" class="nav-link">Live Demo</a></li>
+          <li><a href="#simulator" class="nav-link">Biomechanics</a></li>
+          <li><a href="#tech" class="nav-link">Architecture</a></li>
+          <li><a href="#creator" class="nav-link">Creator</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Social Quick Links -->
+          <a href="https://github.com/aryan-verma2005" target="_blank" rel="noopener noreferrer" class="btn-icon-link" aria-label="GitHub Profile" title="GitHub Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/aryan-verma-685675297/" target="_blank" rel="noopener noreferrer" class="btn-icon-link" aria-label="LinkedIn Profile" title="LinkedIn Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="https://ai-real-time-gym-trainer-1.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="navCtaBtn">
+            <span>Launch App</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-pill fade-in-up">
+          <span class="pulsing-dot"></span>
+          <span>Computer Vision & AI Voice Powered Coaching</span>
+        </div>
+
+        <h1 class="hero-title fade-in-up">
+          Train With Precision.<br>
+          <span class="gradient-text">Your Real-Time AI Coach</span><br>
+          Right In Your Browser.
+        </h1>
+
+        <p class="hero-description fade-in-up">
+          Elevate your workout form with high-precision skeletal landmark detection, proactive voice-guided posture correction, and automatic biomechanical rep tracking. Zero wearables. Zero hardware.
+        </p>
+
+        <div class="hero-cta-group fade-in-up">
+          <a href="https://ai-real-time-gym-trainer-1.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" id="heroLaunchBtn">
+            <span>Launch Live Web App</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <a href="#demo" class="btn btn-secondary btn-lg" id="heroWatchBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Watch Demo Video</span>
+          </a>
+        </div>
+
+        <!-- Quick Stats Strip -->
+        <div class="hero-stats-strip fade-in-up">
+          <div class="stat-item">
+            <div class="stat-value gradient-text-alt">33 Points</div>
+            <div class="stat-label">Pose Landmark Mesh</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">&lt; 40ms</div>
+            <div class="stat-label">Inference Latency</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value gradient-text-alt">Proactive</div>
+            <div class="stat-label">AI Voice Guidance</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">100% Web</div>
+            <div class="stat-label">No Sensors Needed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Video Showcase Section -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tag">// Real-World Execution</span>
+          <h2 class="section-title">See The AI Coach In Action</h2>
+          <p class="section-subtitle">
+            Watch real-time live skeletal pose tracking, instant squat depth calculation, and proactive auditory voice coaching correcting posture on the fly.
+          </p>
+        </div>
+
+        <div class="video-showcase-container fade-in-up">
+          <div class="cyber-hud-frame">
+            <div class="hud-topbar">
+              <div class="hud-dots">
+                <span class="hud-dot red"></span>
+                <span class="hud-dot yellow"></span>
+                <span class="hud-dot green"></span>
+              </div>
+              <div class="hud-title">AI-GYM-COACH-LIVE_FEED.MP4 [30 FPS • MEDIAPIPE]</div>
+              <div class="hud-stream-status">
+                <span class="pulsing-dot"></span>
+                <span>STREAM ACTIVE</span>
+              </div>
+            </div>
+
+            <div class="video-element-wrapper">
+              <div class="video-overlay-badge">
+                <span>🤖 PROACTIVE AI VOICE ACTIVE</span>
+              </div>
+              <video 
+                id="demoVideo" 
+                class="demo-video-player" 
+                controls 
+                preload="metadata" 
+                playsinline 
+                poster="images/3.png">
+                <source src="Demo-Video/AI-GYM-COACH-DemoVideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <!-- Video Capabilities Breakdown -->
+          <div class="video-features-bar">
+            <div class="v-feature-card">
+              <div class="vf-icon">🎯</div>
+              <div class="vf-content">
+                <h4>Dynamic Depth Detection</h4>
+                <p>Calculates precise femoral-tibial angles in real time to enforce deep squat standards.</p>
+              </div>
+            </div>
+            <div class="v-feature-card">
+              <div class="vf-icon">🔊</div>
+              <div class="vf-content">
+                <h4>Proactive Voice Alerts</h4>
+                <p>Audio cues warn immediately when you lean forward or fail to reach parallel depth.</p>
+              </div>
+            </div>
+            <div class="v-feature-card">
+              <div class="vf-icon">📊</div>
+              <div class="vf-content">
+                <h4>Automatic Rep Validation</h4>
+                <p>Counts only biomechanically valid reps through full concentric & eccentric ranges.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshot Feature Tour -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tag">// Interface Walkthrough</span>
+          <h2 class="section-title">Designed For Seamless Training</h2>
+          <p class="section-subtitle">
+            Explore every phase of the workout lifecycle from user session initialization to biometric performance analytics.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1: Login / Session Setup -->
+          <article class="feature-tour-card fade-in-up" id="featureCard1">
+            <div class="ft-image-container" onclick="openLightbox('images/1.png', 'Step 01: Frictionless User Authentication', 'Simple, zero-friction session initiation to personalize your workout metrics and persist routine history.')">
+              <img src="images/1.png" alt="AI Gym Trainer Login Screen" class="ft-image" loading="lazy">
+              <div class="ft-step-number">STEP 01</div>
+              <div class="ft-zoom-indicator">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Click to Zoom</span>
+              </div>
+            </div>
+            <div class="ft-content">
+              <h3>Frictionless Session Setup</h3>
+              <p>
+                Get started in seconds with personalized user profiles. No cumbersome passwords or hardware pairing required—enter your name and enter the workout zone immediately.
+              </p>
+              <div class="ft-tags">
+                <span class="ft-tag">Unique Username</span>
+                <span class="ft-tag">Session State</span>
+                <span class="ft-tag">Streamlit UI</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Custom Workout Planner -->
+          <article class="feature-tour-card fade-in-up" id="featureCard2">
+            <div class="ft-image-container" onclick="openLightbox('images/2.png', 'Step 02: Workout Planner & Target Configuration', 'Select exercises, configure target sets and reps, and view past performance logs before starting.')">
+              <img src="images/2.png" alt="AI Coach Workout Planner Setup Screen" class="ft-image" loading="lazy">
+              <div class="ft-step-number">STEP 02</div>
+              <div class="ft-zoom-indicator">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Click to Zoom</span>
+              </div>
+            </div>
+            <div class="ft-content">
+              <h3>Custom Workout Planner</h3>
+              <p>
+                Tailor your training session before turning on the camera. Configure multi-set routines, set target repetitions (e.g. 3 sets of 10 reps), and review previous session stats.
+              </p>
+              <div class="ft-tags">
+                <span class="ft-tag">Squats & Presses</span>
+                <span class="ft-tag">Set & Rep Target</span>
+                <span class="ft-tag">Interactive Controls</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Real-Time Vision & Voice Coaching -->
+          <article class="feature-tour-card fade-in-up" id="featureCard3">
+            <div class="ft-image-container" onclick="openLightbox('images/3.png', 'Step 03: Real-Time Pose Tracking & Proactive Voice Coaching', 'MediaPipe skeletal tracking overlays landmarks and prompts voice cues: Stop leaning forward, pull chest up!')">
+              <img src="images/3.png" alt="Live Pose Estimation with AI Voice Guidance" class="ft-image" loading="lazy">
+              <div class="ft-step-number">STEP 03</div>
+              <div class="ft-zoom-indicator">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Click to Zoom</span>
+              </div>
+            </div>
+            <div class="ft-content">
+              <h3>Live Pose Tracking & Voice Coach</h3>
+              <p>
+                Full 33-point skeletal landmark detection visually maps joints while proactive audio voice prompts alert you instantly: <em>"Pull your chest up, shift hips back, stop leaning forward!"</em>
+              </p>
+              <div class="ft-tags">
+                <span class="ft-tag">MediaPipe Pose</span>
+                <span class="ft-tag">Text-To-Speech Audio</span>
+                <span class="ft-tag">Visual Depth Flags</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Biometric Angle Metrics -->
+          <article class="feature-tour-card fade-in-up" id="featureCard4">
+            <div class="ft-image-container" onclick="openLightbox('images/4.png', 'Step 04: Real-time Biometrics & Workout History', 'Comprehensive live dashboard measuring knee angle (176°), back angle (171°), depth status, and completed exercise log.')">
+              <img src="images/4.png" alt="Real-time Metrics and History Dashboard" class="ft-image" loading="lazy">
+              <div class="ft-step-number">STEP 04</div>
+              <div class="ft-zoom-indicator">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Click to Zoom</span>
+              </div>
+            </div>
+            <div class="ft-content">
+              <h3>Biometrics & History Dashboard</h3>
+              <p>
+                Observe high-precision angles in real time (e.g. Knee Angle 176°, Back Angle 171°), live Depth Status (STANDING / SQUATTING), and detailed session history with time elapsed.
+              </p>
+              <div class="ft-tags">
+                <span class="ft-tag">Knee & Back Angle</span>
+                <span class="ft-tag">Workout History</span>
+                <span class="ft-tag">Auto Rep Count</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Biomechanics & Angle Simulator -->
+    <section class="section" id="simulator">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tag">// Biomechanical Intelligence</span>
+          <h2 class="section-title">Test The AI Coach Algorithm</h2>
+          <p class="section-subtitle">
+            Interact with our simulated joint-angle analyzer to see how the computer vision algorithm detects depth and triggers real-time voice feedback.
+          </p>
+        </div>
+
+        <div class="simulator-box fade-in-up">
+          <div class="sim-info">
+            <h3>Interactive Angle Simulator</h3>
+            <p>
+              Slide the knee flexion angle slider or pick a preset to see how the mathematical vector calculations determine rep validity and coach guidance.
+            </p>
+
+            <div class="interactive-slider-wrapper">
+              <div class="slider-labels">
+                <span>Current Knee Flexion:</span>
+                <span id="sliderAngleDisplay" class="gradient-text-alt" style="font-family: var(--font-mono); font-size: 1.1rem;">175°</span>
+              </div>
+              <input type="range" id="kneeAngleSlider" class="angle-slider" min="60" max="180" value="175" step="1">
+            </div>
+
+            <div class="sim-presets">
+              <button class="preset-btn active" onclick="setSimPreset(175)">Standing (175°)</button>
+              <button class="preset-btn" onclick="setSimPreset(120)">Partial Squat (120°)</button>
+              <button class="preset-btn" onclick="setSimPreset(85)">Full Depth (85°)</button>
+              <button class="preset-btn" onclick="setSimPreset(65)">Deep ATG (65°)</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Live HUD Preview -->
+          <div class="sim-preview-dashboard">
+            <div class="sim-metric-card">
+              <div class="metric-pill">
+                <div class="metric-pill-label">Knee Angle</div>
+                <div class="metric-pill-value" id="simKneeAngle">175°</div>
+              </div>
+              <div class="metric-pill">
+                <div class="metric-pill-label">Back Angle</div>
+                <div class="metric-pill-value" id="simBackAngle">170°</div>
+              </div>
+            </div>
+
+            <div class="sim-status-box">
+              <div class="metric-pill-label">Depth Status</div>
+              <div class="status-badge status-standing" id="simDepthStatus">STANDING</div>
+            </div>
+
+            <div class="sim-voice-coach">
+              <div class="coach-icon">🤖</div>
+              <div class="coach-message" id="simCoachMsg">
+                Coach: Ready! Begin your descent, keep chest upright.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Tech Stack -->
+    <section class="section" id="tech">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <span class="section-tag">// Engineering Stack</span>
+          <h2 class="section-title">Built With Precision Tech</h2>
+          <p class="section-subtitle">
+            Combines edge computer vision algorithms with responsive web deployment for low-latency workout feedback.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card fade-in-up">
+            <div class="tech-icon-wrap">⚡</div>
+            <h4>MediaPipe Pose</h4>
+            <p>Utilizes Google's state-of-the-art 33 3D keypoint skeletal landmark pipeline for real-time tracking.</p>
+          </div>
+          <div class="tech-card fade-in-up">
+            <div class="tech-icon-wrap">📐</div>
+            <h4>Biomechanical Math</h4>
+            <p>Trigonometric vector cross-products compute instantaneous joint angles for spine and knee kinematics.</p>
+          </div>
+          <div class="tech-card fade-in-up">
+            <div class="tech-icon-wrap">🎙️</div>
+            <h4>Proactive Voice AI</h4>
+            <p>Low-latency text-to-speech engine produces contextual cues to keep eyes focused on form, not screens.</p>
+          </div>
+          <div class="tech-card fade-in-up">
+            <div class="tech-icon-wrap">🚀</div>
+            <h4>Streamlit Cloud</h4>
+            <p>Rapid cloud hosting and live webcam streaming infrastructure for seamless browser accessibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Developer / Creator Spotlight -->
+    <section class="section" id="creator">
+      <div class="container">
+        <div class="creator-container fade-in-up">
+          <div class="creator-card">
+            <div class="creator-avatar-wrap">
+              <div class="creator-avatar-ring"></div>
+              <div class="creator-avatar-inner">AV</div>
+            </div>
+            <div class="creator-details">
+              <h3>Aryan Verma</h3>
+              <div class="creator-role">Creator & Computer Vision Developer</div>
+              <p class="creator-bio">
+                Passionate engineer building accessible AI tools at the intersection of computer vision, human posture kinematics, and interactive software. Designed <strong>AI-Real-time-GYM-Trainer</strong> to bring professional-grade coaching directly to everyone's webcam.
+              </p>
+              <div class="creator-social-links">
+                <a href="https://github.com/aryan-verma2005" target="_blank" rel="noopener noreferrer" class="social-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>github.com/aryan-verma2005</span>
+                </a>
+                <a href="https://www.linkedin.com/in/aryan-verma-685675297/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                  <span>Aryan Verma on LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="container cta-banner-wrapper">
+      <div class="cta-banner fade-in-up">
+        <h2>Ready To Perfect Your Form?</h2>
+        <p>
+          Experience intelligent workout feedback in real-time. Start your session right now directly in your browser.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://ai-real-time-gym-trainer-1.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" id="bottomCtaBtn">
+            <span>Launch AI Gym Coach</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="https://github.com/aryan-verma2005" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
+            <span>Star on GitHub</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.399 8.168-7.333-3.856-7.333 3.856 1.399-8.168-5.934-5.784 8.2-1.192zm0 5.702l-2.223 4.505-4.972.723 3.598 3.507-.849 4.952 4.446-2.338 4.446 2.338-.849-4.952 3.598-3.507-4.972-.723z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a href="#hero" class="footer-brand">
+          <span>🏋️ AI Real-time GYM Trainer</span>
+        </a>
+        <ul class="footer-links">
+          <li><a href="#features" class="footer-link">Features</a></li>
+          <li><a href="#demo" class="footer-link">Demo Video</a></li>
+          <li><a href="#simulator" class="footer-link">Biomechanics</a></li>
+          <li><a href="https://ai-real-time-gym-trainer-1.streamlit.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Streamlit App</a></li>
+          <li><a href="https://github.com/aryan-verma2005" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/aryan-verma-685675297/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI-Real-time-GYM-Trainer. Created with passion by Aryan Verma. Powered by MediaPipe & Computer Vision.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Screenshots -->
+  <div class="lightbox-modal" id="lightboxModal" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="lightbox-content">
+      <div class="lightbox-header">
+        <span class="lightbox-title" id="lightboxTitle">Screenshot Preview</span>
+        <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="Full Resolution Screenshot" id="lightboxImage" class="lightbox-img">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption">
+        Caption description.
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
